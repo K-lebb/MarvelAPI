@@ -1,5 +1,59 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.hero-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.character-card {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    width: 180px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(255, 0, 0, 0.5);
+}
+
+.character-card img {
+    width: 100%;
+    border-bottom: 2px solid #ff0000;
+}
+
+/* Nome do personagem */
+.character-card h3 {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ff0000;
+}
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
@@ -78,3 +132,4 @@ h1 {
         font-size: 0.9rem;
     }
 }
+
