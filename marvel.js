@@ -46,8 +46,9 @@ function createDivHero(srcImage, nameHero, divToAppend) {
     textName.textContent = nameHero;
     img.src = srcImage;
 
-    divFilho.appendChild(img);
     divFilho.appendChild(textName);
+
+    divPai.appendChild(img);
     divPai.appendChild(divFilho);
     divToAppend.appendChild(divPai);
 
