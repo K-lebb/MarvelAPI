@@ -11,17 +11,17 @@ const nextButton = document.createElement("button");
 nextButton.innerText = "Próximo";
 nextButton.classList.add("next");
 
-let fisrtPag = 0;
+let firstPag = 0;
 const characterLimit = 15;
 
 function nextPage() {
-    fisrtPag += characterLimit;
+    firstPag += characterLimit;
     fetchCharacters();
 }
 
 function prevPage() {
-    if (fisrtPag >= characterLimit) {
-        fisrtPag -= characterLimit;
+    if (firstPag >= characterLimit) {
+        firstPag -= characterLimit;
         fetchCharacters();
     }
 }
@@ -37,9 +37,16 @@ searchButton.addEventListener('click', () => {
     fetchCharacters(query);
 });
 
-function fetchCharacters(query = '') {
-    const url = `https://gateway.marvel.com:443/v1/public/characters?ts=${timeStamp}&apikey=${apiKey}&hash=${md5}&limit=${characterLimit}&offset=${fisrtPag}${query ? '&nameStartsWith=' + query : ''}`;
+const searchInput = document.querySelector('#searchInput');
+searchInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        const query = searchInput.value.trim();
+        fetchCharacters(query);
+    }
+});
 
+function fetchCharacters(query = '') {
+    const url = `https://gateway.marvel.com:443/v1/public/characters?ts=${timeStamp}&apikey=${apiKey}&hash=${md5}&limit=${characterLimit}&offset=${firstPag}${query ? '&nameStartsWith=' + query : ''}`;
 
     fetch(url)
         .then((response) => response.json())
@@ -53,7 +60,7 @@ function fetchCharacters(query = '') {
             }
 
             jsonParsed.data.results.forEach(element => {
-                prevButton.disabled = fisrtPag === 0;
+                prevButton.disabled = firstPag === 0;
                 nextButton.disabled = jsonParsed.data.results.length < characterLimit;
 
                 const srcImage = element.thumbnail.path + '.' + element.thumbnail.extension;
