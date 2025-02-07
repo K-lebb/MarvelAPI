@@ -1,4 +1,4 @@
-# 🍕 API Marvel
+# 🦸‍♂️ API Marvel
 
 Um projeto de um site de API, desenvolvido para aprofundar o conhecimento sobre esse mecanismo. O objetivo é apresentar funcionalidades interativas e um design atrativo utilizando **HTML**, **CSS** e **JavaScript**.  
 <img src='./img/marvelGIF.gif' height="400px" width="700px">
